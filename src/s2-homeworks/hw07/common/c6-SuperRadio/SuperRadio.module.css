@@ -1,6 +1,8 @@
 .radio {
     display: flex;
     flex-direction: column;
+    background: #000000;
+    gap: 50px;
 }
 
 .radio::before {
@@ -11,6 +13,9 @@
 }
 
 .label {
+    display: flex;
+    gap: 10px;
+    color: #000000;
 }
 
 .options {
