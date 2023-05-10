@@ -1,4 +1,7 @@
 .item {
+    width: 606px;
+    height: 36px;
+    border-bottom: 1px solid #000000;
 }
 
 .item:last-of-type {
@@ -8,16 +11,24 @@
 }
 
 .buttonsContainer {
+    text-align:right;
 }
 
 .container {
+    width: 606px;
 }
 
 .thead {
+    width: 606px;
+    height: 36px;
+    background: #E5E5E5;
 }
 
 .nameCol {
+    width: 300px;
 }
 
+
 .ageCol {
+    width: 300px;
 }
