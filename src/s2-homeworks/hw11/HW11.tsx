@@ -37,6 +37,7 @@ function HW11() {
                             id={'hw11-single-slider'}
                             size="small"
                             defaultValue={value1}
+                            value={value1}
                             aria-label="Small"
                             valueLabelDisplay="auto"
                             onChange={change}
