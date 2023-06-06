@@ -33,16 +33,29 @@ const HW13 = () => {
         axios
             .post(url, {success: x})
             .then((res) => {
-                console.log(res)
-                setCode('Код 200!')
+                setCode(`Код ${res.status}!`)
                 setImage(success200)
-                setText('...всё ок) код 200 - обычно означает что скорее всего всё ок)')
+                setText(`${res.data.errorText} ${res.data.info}`)
                 setInfo('')
                 // дописать
 
             })
             .catch((e) => {
+                let img = errorUnknown
+                if (e.code == "ERR_NETWORK") {
+                    setCode(`Error!`)
+                    setImage(img)
+                    setText(e.message)
+                    setInfo(e.name)
+                } else {
+                if (e.response.status === 400) img=error400
+                if (e.response.status === 500) img=error500
                 // дописать
+                setCode(`Код ${e.response.status}!`)
+                setImage(img)
+                setText(e.response.data.errorText)
+                setInfo(e.response.data.info)}
+
 
             })
     }
