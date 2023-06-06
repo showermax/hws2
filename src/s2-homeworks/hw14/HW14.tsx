@@ -31,7 +31,6 @@ const HW14 = () => {
     const [techs, setTechs] = useState<string[]>(['html','css','javascript','typescript','scss','jest'])
 
     const sendQuery = (value: string) => {
-
         setLoading(true)
         getTechs(value)
             .then((res) => {
@@ -39,6 +38,7 @@ const HW14 = () => {
                 if (res) {
                     setTechs(res.data.techs)
                 }
+                setLoading(false)
                 // сохранить пришедшие данные
 
                 //
