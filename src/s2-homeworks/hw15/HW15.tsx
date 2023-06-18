@@ -29,8 +29,8 @@ type ParamsType = {
 
 const getTechs = (params: ParamsType) => {
     return axios
-        .get<{ techs: TechType[], totalCount: number }>(
-            'https://samurai.it-incubator.io/api/3.0',
+        .get<any,{ techs: TechType[], totalCount: number }>(
+            'https://samurai.it-incubator.io/api/3.0/homework/test3',
             {params}
         )
         .catch((e) => {
@@ -54,11 +54,11 @@ const HW15 = () => {
                 // делает студент
 
                 // сохранить пришедшие данные
-
+                setTechs(res.data.techs)
                 //
             })
     }
-
+    console.log(techs)
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
 
