@@ -5,6 +5,7 @@ import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
 import {useSearchParams} from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
+import {Loader} from "../hw10/Loader";
 
 /*
 * 1 - дописать SuperPagination
@@ -64,26 +65,26 @@ const HW15 = () => {
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
+
         setPage(newPage)
         setCount(newCount)
-        // sendQuery(
+        sendQuery({sort,page: newPage,count:newCount})
         // setSearchParams(
-        console.log(newPage,newCount)
         //
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
+debugger
+        setSort(newSort)
+        setPage(1) // при сортировке сбрасывать на 1 страницу
 
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
-
-        // sendQuery(
+        sendQuery({sort:newSort,page,count})
         // setSearchParams(
 
         //
     }
-
+    console.log(sort)
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
         sendQuery({page: params.page, count: params.count})
@@ -108,7 +109,7 @@ const HW15 = () => {
             <div className={s2.hwTitle}>Homework #15</div>
 
             <div className={s2.hw}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
+                {idLoading && <div id={'hw15-loading'} className={s.loading}><Loader /></div>}
 
                 <SuperPagination
                     page={page}
